@@ -528,8 +528,11 @@ function navigateTo(to) {
   const fromEl = document.getElementById(fromId);
   const toEl   = document.getElementById(toId);
 
-  // Guardar en historial
+  // Guardar en historial interno
   state.history.push(state.currentScreen);
+
+  // Registrar en el historial del navegador para que el botón "atrás" del celular funcione
+  history.pushState({ screen: to }, '', '');
 
   // Slide-out de la pantalla actual
   fromEl.classList.remove('active');
@@ -548,8 +551,14 @@ function navigateTo(to) {
   });
 }
 
-/** Vuelve a la pantalla anterior */
+/** Vuelve a la pantalla anterior (usado por el botón interno de la app) */
 function goBack() {
+  // Usar el historial del navegador para que también actualice la URL stack
+  history.back();
+}
+
+/** Maneja el botón "atrás" del navegador/celular */
+window.addEventListener('popstate', () => {
   if (state.history.length === 0) return;
   const prev = state.history.pop();
 
@@ -575,7 +584,7 @@ function goBack() {
       fromEl.style.opacity = '';
     }, 350);
   });
-}
+});
 
 
 /* ─────────────────────────────────────────────────
@@ -779,6 +788,10 @@ function openWhatsApp() {
    INICIALIZACIÓN
 ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Registrar el estado inicial en el historial del navegador
+  // para que el botón "atrás" del celular no cierre la app desde home
+  history.replaceState({ screen: 'home' }, '', '');
+
   renderHome();
   console.log(
     '%cKODE Catálogo v1.0',
