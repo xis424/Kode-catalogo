@@ -9,8 +9,13 @@
   --bg:         #0a0a0a;
   --bg-card:    #141414;
   --bg-nav:     #0f0f0f;
+<<<<<<< HEAD
   --accent:     #6ca1b1;      /* verde lima eléctrico */
   --accent-dim: #539bb8;
+=======
+  --accent:     #0f0d5c;      /* verde lima eléctrico */
+  --accent-dim: #001aff;
+>>>>>>> 3844130f0f082dbf3f2d295440e71177ef82ca45
   --text-1:     #f0ece4;      /* blanco roto */
   --text-2:     #888888;
   --text-3:     #555555;
