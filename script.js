@@ -1,87 +1,66 @@
-/* ══════════════════════════════════════════════════
-   KODE — script.js
-   Catálogo de ropa — lógica completa
-   ══════════════════════════════════════════════════ */
 
 'use strict';
-
-/* ─────────────────────────────────────────────────
-   CONFIGURACIÓN GLOBAL
-───────────────────────────────────────────────── */
-
 const WHATSAPP_NUMBER = '5493804382452';
-
-/* ─────────────────────────────────────────────────
-   BASE DE DATOS DE PRODUCTOS
-   Cada producto tiene:
-     id, name, price, category, description,
-     image, sizes, colors, badge (opcional)
-───────────────────────────────────────────────── */
 const PRODUCTS = [
-
-  /* ── CAMPERAS ── */
   {
     id: 'c1',
     name: 'Campera Oversize Negra',
-    price: 89990,
+    price: 35000,
     category: 'Camperas',
     description: 'Campera oversize de gabardina con cierre metálico. Corte amplio y caída perfecta. Ideal para looks urbanos.',
     image: './imgs/campera1.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    sizes: [ 'XL'],
     colors: [
       { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Verde Oliva', hex: '#4a5240' }
+   
     ],
     badge: 'NUEVO'
   },
   {
     id: 'c2',
-    name: 'Campera Bomber Vintage',
-    price: 74990,
+    name: 'Campera Puma ',
+    price: 35000,
     category: 'Camperas',
-    description: 'Campera bomber estilo retro con bordado en pecho. Material satinado premium con interior acolchado liviano.',
+    description: 'Campera puma negra',
     image: './imgs/campera2.jpg',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: [ 'M', 'L'],
     colors: [
       { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Bordo', hex: '#6b1a1a' },
-      { name: 'Azul Marino', hex: '#1a2040' }
+      
     ]
   },
   {
     id: 'c3',
-    name: 'Campera Denim Lavada',
-    price: 67500,
+    name: 'Campera adidas',
+    price: 30000,
     category: 'Camperas',
-    description: 'Campera de jean con tratamiento stone wash. Corte recto clásico con bolsillos frontales y botones plateados.',
+    description: 'campera deportiva adidas ',
     image: './imgs/campera3.jpg',
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['M', ],
     colors: [
-      { name: 'Celeste', hex: '#5a7fa0' },
-      { name: 'Azul Oscuro', hex: '#1e3a5a' }
+      { name: 'rojo y azul', hex: '#ff0000' },
+     
     ]
   },
 
-  /* ── BUZOS ── */
+
   {
     id: 'b1',
-    name: 'Buzo Hoodie Essential',
-    price: 39990,
+    name: 'Buzo capucha lisa ',
+    price: 35000,
     category: 'Buzos',
     description: 'Buzo con capucha y bolsillo canguro. Tela algodón frizado 320g. El básico indispensable del armario.',
     image: './imgs/buso1.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    sizes: ['XL'],
     colors: [
       { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Gris Oscuro', hex: '#3a3a3a' },
-      { name: 'Beige', hex: '#c8b89a' }
     ],
     badge: 'MÁS VENDIDO'
   },
   {
     id: 'b2',
-    name: 'Buzo Crewneck Logo',
-    price: 34990,
+    name: 'sueter wafle',
+    price: 20000,
     category: 'Buzos',
     description: 'Buzo cuello redondo con estampado frontal de logo KODE en relieve. Algodón compacto premium.',
     image: './imgs/buso2.jpg',
@@ -93,12 +72,12 @@ const PRODUCTS = [
   },
   {
     id: 'b3',
-    name: 'Buzo Oversized Drop',
-    price: 44500,
+    name: 'Buzo capucha lisa ',
+    price: 35000,
     category: 'Buzos',
     description: 'Buzo manga drop shoulder. Corte XL con hombros caídos. Estética minimalista con detalles en contraste.',
     image: './imgs/buso3.jpg',
-    sizes: ['M', 'L', 'XL', 'XXL'],
+    sizes: [ 'XL'],
     colors: [
       { name: 'Gris Claro', hex: '#b0b0b0' },
       { name: 'Verde Lima', hex: '#c6f135' },
@@ -106,72 +85,71 @@ const PRODUCTS = [
     ]
   },
 
-  /* ── REMERAS ── */
+ 
   {
     id: 'r1',
     name: 'Remera Palm Angel',
-    price: 19990,
+    price: 15000,
     category: 'Remeras',
-    description: 'Remera 100% algodón pima 220g. Corte recto con cuello reforzado. Disponible en múltiples colore.',
+    description: 'ooooo',
     image: './imgs/REMERA1.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+    sizes: [ 'L', 'XL', ],
     colors: [
       { name: 'Blanco', hex: '#f5f5f5' },
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Gris', hex: '#7a7a7a' }
+      { name: 'beige', hex: '#ffe8db' },
+      
     ],
     badge: 'BÁSICO'
   },
   {
     id: 'r2',
-    name: 'Remera Estampada Grunge',
-    price: 24990,
+    name: 'Remera estilo wafle',
+    price: 18000,
     category: 'Remeras',
-    description: 'Remera con estampado gráfico distorsionado. Tinta en base agua de larga duración. Corte unisex.',
+    description: 'Remera textura wafle',
     image: './imgs/REMERA2.png',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['L', ],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Blanco', hex: '#f5f5f5' }
+      { name: 'verde', hex: '#adffb1' },
+    
     ]
   },
   {
     id: 'r3',
-    name: 'Remera Manga Larga Stripe',
-    price: 27500,
+    name: 'Remera hollster ',
+    price: 15000,
     category: 'Remeras',
-    description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
+    description: 'Remera hollster con estampa reverse ',
     image: './imgs/REMERA3.png',
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: [ 'XL'],
     colors: [
-      { name: 'Azul/Blanco', hex: '#3a5a8a' },
-      { name: 'Negro/Gris', hex: '#2a2a2a' }
+      { name: 'bordo', hex: '#6e2121' },
+     
     ]
   },
   {
     id: 'r4',
-    name: 'Remera Manga Larga Stripe',
-    price: 27500,
+    name: 'Remera hollster',
+    price: 15000,
     category: 'Remeras',
-    description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
+    description: 'Remera hollster con estampa reverse',
     image: './imgs/REMERA4.png',
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['Xl'],
     colors: [
-      { name: 'Azul/Blanco', hex: '#3a5a8a' },
-      { name: 'Negro/Gris', hex: '#2a2a2a' }
+      { name: 'Beige', hex: '#ffeaa4' }
     ]
   },
   {
     id: 'r5',
-    name: 'Remera Manga Larga Stripe',
-    price: 27500,
+    name: 'Remera hollster',
+    price: 15000,
     category: 'Remeras',
     description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
     image: './imgs/REMERA5.png',
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['Xl'],
     colors: [
-      { name: 'Azul/Blanco', hex: '#3a5a8a' },
-      { name: 'Negro/Gris', hex: '#2a2a2a' }
+    
+      { name: 'Negro', hex: '#050303' }
     ]
   },
 
