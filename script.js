@@ -156,69 +156,69 @@ const PRODUCTS = [
   /* ── JEANS ── */
   {
     id: 'j1',
-    name: 'Jean Baggy 90s',
-    price: 64990,
+    name: 'Jean Baggy oxido',
+    price: 35000,
     category: 'Jeans',
-    description: 'Jean de corte baggy inspirado en los 90s. Tiro alto y pierna ancha. Denim 12oz de alta calidad.',
+    description: 'jean baggy oxido ',
     image: './imgs/jean1.jpg',
-    sizes: ['28', '30', '32', '34', '36'],
+    sizes: [ '44', '46'],
     colors: [
       { name: 'Celeste Lavado', hex: '#7aa0be' },
-      { name: 'Azul Oscuro', hex: '#1e3a5a' }
+     
     ]
   },
   {
     id: 'j2',
-    name: 'Jean Skinny Elástico',
-    price: 54990,
+    name: 'Jean Baggy celeste',
+    price: 35000,
     category: 'Jeans',
-    description: 'Jean skinny con 2% elastano para máxima comodidad. Fit ceñido en todo el largo. Tiro medio.',
+    description: 'Jean baggy estilo escolar',
     image: './imgs/jean2.jpg',
-    sizes: ['26', '28', '30', '32', '34'],
+    sizes: [ '44'],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Azul Medio', hex: '#3a5a8a' }
+  
+      { name: 'celeste', hex: '#3a5a8a' }
     ]
   },
   {
     id: 'j3',
-    name: 'Jean Carpenter Utility',
-    price: 71500,
+    name: 'Jean baggy negro',
+    price: 35000,
     category: 'Jeans',
-    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales. Denim rígido premium.',
+    description: 'Jean .',
     image: './imgs/jean3.jpg',
-    sizes: ['28', '30', '32', '34', '36'],
+    sizes: [ '46'],
     colors: [
-      { name: 'Beige Oscuro', hex: '#8a7a5a' },
-      { name: 'Azul Trabajo', hex: '#2a3a5a' }
-    ],
-    badge: 'NUEVO'
-  },
-  {
-    id: 'j4',
-    name: 'Jean Carpenter Utility',
-    price: 71500,
-    category: 'Jeans',
-    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales. Denim rígido premium.',
-    image: './imgs/jean4.jpg',
-    sizes: ['28', '30', '32', '34', '36'],
-    colors: [
-      { name: 'Beige Oscuro', hex: '#8a7a5a' },
-      { name: 'Azul Trabajo', hex: '#2a3a5a' }
+      { name: 'negro', hex: '#030303' },
+     
     ],
     badge: 'NUEVO'
   },
   {
     id: 'j5',
-    name: 'Jean Carpenter Utility',
-    price: 71500,
+    name: 'Jean cargo beige',
+    price: 35000,
     category: 'Jeans',
-    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales. Denim rígido premium.',
+    description: 'Jean cargo beige',
     image: './imgs/jean5.jpg',
-    sizes: ['28', '30', '32', '34', '36'],
+    sizes: [ '4'],
     colors: [
       { name: 'Beige Oscuro', hex: '#8a7a5a' },
-      { name: 'Azul Trabajo', hex: '#2a3a5a' }
+     
+    ],
+    badge: 'NUEVO'
+  },
+  {
+    id: 'j5',
+    name: 'Jean Cargo Negro',
+    price: 50000,
+    category: 'Jeans',
+    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales.  rígido premium.',
+    image: './imgs/jean4.jpg',
+    sizes: [ '44'],
+    colors: [
+      { name: 'negro', hex: '#000000' },
+     
     ],
     badge: 'NUEVO'
   },
@@ -271,50 +271,49 @@ const PRODUCTS = [
   /* ── ACCESORIOS ── */
   {
     id: 'a1',
-    name: 'Gorra Snapback KODE',
-    price: 22990,
+    name: 'Gorra lisa',
+    price: 15000,
     category: 'Accesorios',
-    description: 'Gorra 6 paneles con bordado frontal. Cierre snapback ajustable. 100% algodón canvas.',
+    description: 'Gorra lisa ',
     image: './imgs/gorra1.jpg',
     sizes: ['Única'],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Blanco', hex: '#f5f5f5' },
-      { name: 'Verde Lima', hex: '#c6f135' }
+     
+      { name: 'Verde ', hex: '#537950' }
     ]
   },
   {
     id: 'a2',
-    name: 'Riñonera Urban',
+    name: 'gorra lisa',
     price: 29990,
     category: 'Accesorios',
-    description: 'Riñonera de uso cruzado o cintura. Dos compartimentos con cierre YKK. Material polyester resistente.',
+    description: ' gorra lisa gris',
     image: './imgs/gorra4.jpg',
     sizes: ['Única'],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
+      
       { name: 'Gris', hex: '#7a7a7a' }
     ]
   },
    {
     id: 'a3',
-    name: 'Riñonera Urban',
-    price: 29990,
+    name: 'gorra estampada  brooklin',
+    price: 15000,
     category: 'Accesorios',
-    description: 'Riñonera de uso cruzado o cintura. Dos compartimentos con cierre YKK. Material polyester resistente.',
+    description: 'gorra estampada beige brooklin',
     image: './imgs/gorra3.jpg',
     sizes: ['Única'],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
+     
       { name: 'Gris', hex: '#7a7a7a' }
     ]
   },
   {
     id: 'a4',
-    name: 'Cinturón Hebilla Box',
-    price: 18500,
+    name: 'gorra beige brooklin',
+    price: 15000,
     category: 'Accesorios',
-    description: 'Cinturón con hebilla cuadrada metálica estilo Y2K. Cuero sintético de alta calidad. Regulable.',
+    description: 'gorra estampada beige brooklin',
     image: './imgs/gorra2.jpg',
     sizes: ['S/M', 'L/XL'],
     colors: [
@@ -326,7 +325,7 @@ const PRODUCTS = [
   {
     id: 'a5',
     name: 'Cinturón Hebilla Box',
-    price: 18500,
+    price: 12500,
     category: 'Accesorios',
     description: 'Cinturón con hebilla cuadrada metálica estilo Y2K. Cuero sintético de alta calidad. Regulable.',
     image: './imgs/cintos.jpg',
@@ -339,14 +338,14 @@ const PRODUCTS = [
   },
   {
     id: 'a6',
-    name: 'Cinturón Hebilla Box',
-    price: 18500,
+    name: 'Riñonera',
+    price: 20000,
     category: 'Accesorios',
-    description: 'Cinturón con hebilla cuadrada metálica estilo Y2K. Cuero sintético de alta calidad. Regulable.',
+    description: 'Riñonera de uso cruzado o cintura.',
     image: './imgs/riñonera.jpg',
-    sizes: ['S/M', 'L/XL'],
+    sizes: ['unico'],
     colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
+      { name: 'verde', hex: '#46643c' },
       { name: 'Marrón', hex: '#5a3a20' }
     ],
     badge: 'NUEVO'
@@ -355,12 +354,12 @@ const PRODUCTS = [
   /* ── MEDIAS ── */
   {
     id: 'm1',
-    name: 'Medias Caña Alta Logo',
-    price: 8990,
+    name: 'Medias  Alta ',
+    price: 3000,
     category: 'Medias',
     description: 'Pack x3 medias caña alta con logo bordado. 78% algodón, elástico suave. Unisex.',
     image: './imgs/medias1.jpg',
-    sizes: ['35-38', '39-42', '43-46'],
+    sizes: [ '44'],
     colors: [
       { name: 'Blanco', hex: '#f5f5f5' },
       { name: 'Negro', hex: '#1a1a1a' }
@@ -369,10 +368,10 @@ const PRODUCTS = [
   },
   {
     id: 'm2',
-    name: 'Medias Sport Cushion',
-    price: 7490,
+    name: 'Medias altas',
+    price: 3000,
     category: 'Medias',
-    description: 'Medias deportivas con suela acolchada y arco reforzado. Ideal para uso diario y entrenamiento.',
+    description: 'Medias altas blancas',
     image: './imgs/medias2.jpg',
     sizes: ['35-38', '39-42', '43-46'],
     colors: [
@@ -383,14 +382,14 @@ const PRODUCTS = [
   },
   {
     id: 'm3',
-    name: 'Medias Tobilleras Ribbed',
-    price: 6990,
+    name: 'altas negras',
+    price: 3000,
     category: 'Medias',
     description: 'Medias tobilleras con tejido acanalado. Borde vuelto con detalle de línea de color. Pack x2.',
     image: './imgs/medias3.jpg',
-    sizes: ['35-38', '39-42', '43-46'],
+    sizes: ['44'],
     colors: [
-      { name: 'Blanco/Verde', hex: '#e8f8a0' },
+      
       { name: 'Negro/Blanco', hex: '#2a2a2a' }
     ],
     badge: 'PACK x2'
