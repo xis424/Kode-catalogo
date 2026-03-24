@@ -285,7 +285,7 @@ const PRODUCTS = [
   {
     id: 'a2',
     name: 'gorra lisa',
-    price: 29990,
+    price: 15000,
     category: 'Accesorios',
     description: ' gorra lisa gris',
     image: './imgs/gorra4.jpg',
