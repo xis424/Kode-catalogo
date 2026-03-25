@@ -548,7 +548,7 @@ const CATEGORIES = [
   },
   {
     name: 'Jogging',
-    image: './imgs/REMERA3.png'
+    image: './imgs/joggin.jpg'
   },
   {
     name: 'Accesorios',
