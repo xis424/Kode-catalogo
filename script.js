@@ -298,7 +298,7 @@ const PRODUCTS = [
     image: './imgs/jean6.jpg',
     sizes: [ '46'],
     colors: [
-      { name: 'verde', hex: '#2f5a29' },
+      { name: 'verde musgo', hex: '#2f5a29' },
      
     ],
     badge: 'NUEVO'
