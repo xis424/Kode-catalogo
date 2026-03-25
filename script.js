@@ -201,7 +201,7 @@ const PRODUCTS = [
     price: 18000,
     category: 'Remeras',
     description: 'chaleco',
-    image: './imgs/REMERA6.jpg',
+    image: './imgs/remera6.jpg',
     sizes: ['Xl'],
     colors: [
     
@@ -214,7 +214,7 @@ const PRODUCTS = [
     price: 15000,
     category: 'Remeras',
     description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
-    image: './imgs/REMERA7.jpg',
+    image: './imgs/remera7.jpg',
     sizes: ['l'],
     colors: [
     
@@ -227,7 +227,7 @@ const PRODUCTS = [
     price: 15000,
     category: 'Remeras',
     description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
-    image: './imgs/REMERA8.jpg',
+    image: './imgs/remera8.jpg',
     sizes: ['Xl'],
     colors: [
     
