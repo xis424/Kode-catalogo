@@ -19,7 +19,7 @@ const PRODUCTS = [
   {
     id: 'c2',
     name: 'Campera Puma ',
-    price: 35000,
+    price: 30000,
     category: 'Camperas',
     description: 'Campera puma negra',
     image: './imgs/campera2.jpg',
@@ -84,8 +84,51 @@ const PRODUCTS = [
       { name: 'Negro', hex: '#1a1a1a' }
     ]
   },
+   {
+    id: 'b4',
+    name: 'Buzo 4XL ',
+    price: 15000,
+    category: 'Buzos',
+    description: 'Buzo talle 4xl',
+    image: './imgs/buso4.jpg',
+    sizes: [ '4XL'],
+    colors: [
+      
+   
+      { name: 'Negro', hex: '#1a1a1a' }
+    ]
+  },
+   {
+    id: 'b5',
+    name: 'Buzo  ',
+    price: 10000,
+    category: 'Buzos',
+    description: 'Buzo manga drop shoulder. Corte XL con hombros caídos. Estética minimalista con detalles en contraste.',
+    image: './imgs/buso5.jpg',
+    sizes: [ 'M'],
+    colors: [
+   
+      { name: 'negro ', hex: '#000000' },
+    
+    ]
+  },
+   {
+    id: 'b6',
+    name: 'Buzo ',
+    price: 20000,
+    category: 'Buzos',
+    description: 'Buzo manga drop shoulder. Corte XL con hombros caídos. Estética minimalista con detalles en contraste.',
+    image: './imgs/buso6.jpg',
+    sizes: [ 'M'],
+    colors: [
+  
+      { name: 'Verde ', hex: '#169106' },
+    
+    ]
+  },
 
- 
+
+ //remeras
   {
     id: 'r1',
     name: 'Remera Palm Angel',
@@ -152,7 +195,45 @@ const PRODUCTS = [
       { name: 'Negro', hex: '#050303' }
     ]
   },
-
+   {
+    id: 'r6',
+    name: 'Chaleco deportivo ',
+    price: 18000,
+    category: 'Remeras',
+    description: 'chaleco',
+    image: './imgs/REMERA6.jpg',
+    sizes: ['Xl'],
+    colors: [
+    
+      { name: 'Negro', hex: '#050303' }
+    ]
+  },
+{
+    id: 'r7',
+    name: 'chomba manga larga',
+    price: 15000,
+    category: 'Remeras',
+    description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
+    image: './imgs/REMERA7.jpg',
+    sizes: ['l'],
+    colors: [
+    
+      { name: 'marron', hex: '#a8953f' }
+    ]
+  },
+  {
+    id: 'r8',
+    name: 'Remera  manga larga',
+    price: 15000,
+    category: 'Remeras',
+    description: 'Remera manga larga con microrayas tejidas en la tela. Cuello camisero pequeño. Fit slim.',
+    image: './imgs/REMERA8.jpg',
+    sizes: ['Xl'],
+    colors: [
+    
+      { name: 'blanca', hex: '#ffffff' }
+    ]
+  },
   /* ── JEANS ── */
   {
     id: 'j1',
@@ -197,13 +278,70 @@ const PRODUCTS = [
   {
     id: 'j5',
     name: 'Jean cargo beige',
-    price: 35000,
+    price: 18000,
     category: 'Jeans',
     description: 'Jean cargo beige',
     image: './imgs/jean5.jpg',
     sizes: [ '4'],
     colors: [
       { name: 'Beige Oscuro', hex: '#8a7a5a' },
+     
+    ],
+    badge: 'NUEVO'
+  },
+   {
+    id: 'j6',
+    name: 'Jean baggy musgo',
+    price: 35000,
+    category: 'Jeans',
+    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales.  rígido premium.',
+    image: './imgs/jean6.jpg',
+    sizes: [ '46'],
+    colors: [
+      { name: 'verde', hex: '#2f5a29' },
+     
+    ],
+    badge: 'NUEVO'
+  },
+  {
+    id: 'j7',
+    name: 'Jean talle 52',
+    price: 45000,
+    category: 'Jeans',
+    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales.  rígido premium.',
+    image: './imgs/jean7.jpg',
+    sizes: [ '52'],
+    colors: [
+      { name: 'negro', hex: '#000000' },
+     
+    ],
+    badge: 'NUEVO'
+  },
+   {
+    id: 'j8',
+    name: 'Jean baggy talle 50 ',
+    price: 40000,
+    category: 'Jeans',
+    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales.  rígido premium.',
+    image: './imgs/jean8.jpg',
+    sizes: [ '50'],
+    colors: [
+      { name: 'negro', hex: '#000000' },
+     
+    ],
+    badge: 'NUEVO'
+  },
+  
+   {
+    id: 'j10',
+    name: 'Jean talle 54',
+    price: 45000,
+    category: 'Jeans',
+    description: 'Jean estilo carpenter con bolsillo lateral derecho. Múltiples bolsillos funcionales.  rígido premium.',
+    image: './imgs/jean10.jpg',
+    sizes: [ '54'],
+    colors: [
+      { name: 'celeste', hex: '#003261' },
      
     ],
     badge: 'NUEVO'
@@ -225,45 +363,30 @@ const PRODUCTS = [
 
 
   /* ── JOGGING ── */
-  {
-    id: 'jo1',
-    name: 'Jogging Fleece Premium',
-    price: 42990,
-    category: 'Jogging',
-    description: 'Pantalón jogger en tela fleece suave 280g. Cintura elástica con cordón y puños canalé. Bolsillos con cierre.',
-    image: 'https://images.unsplash.com/photo-1594938298603-c8148c4b4cbe?w=600&q=80',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    colors: [
-      { name: 'Gris Melange', hex: '#8a8a8a' },
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Bordo', hex: '#6b1a1a' }
-    ]
-  },
-  {
+{
     id: 'jo2',
-    name: 'Jogging Cargo Técnico',
-    price: 54990,
-    category: 'Jogging',
-    description: 'Jogger cargo en tela técnica ripstop. Bolsillos laterales tipo cargo con velcro. Corte moderno amplio.',
-    image: 'https://images.unsplash.com/photo-1517438476312-10d79c077509?w=600&q=80',
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: [
-      { name: 'Negro', hex: '#1a1a1a' },
-      { name: 'Verde Oliva', hex: '#4a5240' }
-    ],
-    badge: 'DROP'
-  },
-  {
-    id: 'jo3',
-    name: 'Jogging Wide Leg',
-    price: 46500,
+    name: 'Jogging',
+    price: 18000,
     category: 'Jogging',
     description: 'Pantalón wide leg en punto de algodón pesado. Pierna ancha relajada. Ideal para looks casuales.',
-    image: 'https://images.unsplash.com/photo-1580906853135-44f42ee22d55?w=600&q=80',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    image: './imgs/joggin.jpg',
+    sizes: ['5'],
     colors: [
-      { name: 'Beige', hex: '#c8b89a' },
-      { name: 'Negro', hex: '#1a1a1a' },
+
+      { name: 'azul', hex: '#000397' }
+    ]
+  },
+
+{
+    id: 'jo1',
+    name: 'Jogging ',
+    price: 18000,
+    category: 'Jogging',
+    description: 'Pantalón wide leg en punto de algodón pesado. Pierna ancha relajada. Ideal para looks casuales.',
+    image: './imgs/joggin2.jpg',
+    sizes: ['7'],
+    colors: [
+
       { name: 'Gris', hex: '#7a7a7a' }
     ]
   },
@@ -364,8 +487,9 @@ const PRODUCTS = [
       { name: 'Blanco', hex: '#f5f5f5' },
       { name: 'Negro', hex: '#1a1a1a' }
     ],
-    badge: 'PACK x3'
+    badge: 'PACK x3 7000'
   },
+  
   {
     id: 'm2',
     name: 'Medias altas',
@@ -373,27 +497,32 @@ const PRODUCTS = [
     category: 'Medias',
     description: 'Medias altas blancas',
     image: './imgs/medias2.jpg',
-    sizes: ['35-38', '39-42', '43-46'],
+    sizes: ['unico'],
     colors: [
       { name: 'Blanco', hex: '#f5f5f5' },
       { name: 'Gris', hex: '#7a7a7a' },
       { name: 'Negro', hex: '#1a1a1a' }
+      
     ]
   },
+  
   {
     id: 'm3',
     name: 'altas negras',
-    price: 3000,
+    price: 2000,
     category: 'Medias',
     description: 'Medias tobilleras con tejido acanalado. Borde vuelto con detalle de línea de color. Pack x2.',
-    image: './imgs/medias3.jpg',
+    image: './imgs/medias4.jpg',
     sizes: ['44'],
     colors: [
       
       { name: 'Negro/Blanco', hex: '#2a2a2a' }
     ],
-    badge: 'PACK x2'
+    badge: 'PACK x2 3000 x3 3500'
   }
+  
+
+
 
 ]; // fin PRODUCTS
 
