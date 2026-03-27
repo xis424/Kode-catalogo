@@ -45,7 +45,32 @@ const PRODUCTS = [
 
 
   {
-    id: 'b1',
+    id: 'c4',
+    name: 'conjunto de Argentina',
+    price: 45000,
+    category: 'Camperas',
+    description: 'Campera deportiva.',
+    image: './imgs/campera4.jpg',
+    sizes: ['4'],
+    colors: [
+      { name: 'Negro', hex: '#ffffff' }
+    ]
+  },
+  {
+    id: 'c5',
+    name: 'conjunto de Argentina',
+    price: 45000,
+    category: 'Camperas',
+    description: 'Campera deportiva.',
+    image: './imgs/campera5.jpg',
+    sizes: ['5'],
+    colors: [
+      { name: 'azul', hex: '#0f0063' }
+    ]
+  },
+
+
+  {
     name: 'Buzo capucha lisa ',
     price: 35000,
     category: 'Buzos',
@@ -125,6 +150,32 @@ const PRODUCTS = [
       { name: 'Verde ', hex: '#169106' },
     
     ]
+  },
+  {
+    id: 'b7',
+    name: 'Sueter Negro',
+    price: 30000,
+    category: 'Buzos',
+    description: 'Sueter negro de algodón, corte clásico y cómodo.',
+    image: './imgs/buzo8.jpg',
+    sizes: [ '2XL'],
+    colors: [
+      { name: 'Negro', hex: '#1a1a1a' }
+    ],
+    badge: 'NUEVO'
+  },
+  {
+    id: 'b8',
+    name: 'Sueter Beige',
+    price: 30000,
+    category: 'Buzos',
+    description: 'Sueter beige de algodón, corte clásico y cómodo.',
+    image: './imgs/buzo7.jpg',
+    sizes: ['2XL'],
+    colors: [
+      { name: 'Beige', hex: '#e8d5b7' }
+    ],
+    badge: 'NUEVO'
   },
 
 
@@ -362,6 +413,32 @@ const PRODUCTS = [
   },
 
 
+  {
+    id: 'j11',
+    name: 'Jean gris talle 42',
+    price: 30000,
+    category: 'Jeans',
+    description: 'Jean .',
+    image: './imgs/jean11.jpg',
+    sizes: ['42', ],
+    colors: [
+      { name: 'gris', hex: '#7aa0be' }
+    ],
+    badge: 'NUEVO'
+  },
+  {
+    id: 'j12',
+    name: 'Bermuda Jean',
+    price: 30000,
+    category: 'Jeans',
+    description: 'Bermuda de jean cómoda y resistente.',
+    image: './imgs/jean12.jpg',
+    sizes: ['48'],
+    colors: [
+      { name: 'Celeste Lavado', hex: '#7aa0be' }
+    ]
+  },
+
   /* ── JOGGING ── */
 {
     id: 'jo2',
@@ -388,6 +465,43 @@ const PRODUCTS = [
     colors: [
 
       { name: 'Gris', hex: '#7a7a7a' }
+    ]
+  },
+
+  {
+    id: 'jo3',
+    name: 'Conjunto de Argentina',
+    price: 45000,
+    category: 'Jogging',
+    description: 'Pantalón jogging cómodo y deportivo.',
+    image: './imgs/campera4.jpg',
+    sizes: ['4'],
+    colors: [
+      { name: 'Negro', hex: '#1a1a1a' }
+    ]
+  },
+   {
+    id: 'jo4',
+    name: 'Conjunto de Argentina',
+    price: 45000,
+    category: 'Jogging',
+    description: 'Pantalón jogging cómodo y deportivo.',
+    image: './imgs/campera5.jpg',
+    sizes: ['5'],
+    colors: [
+      { name: 'Negro', hex: '#1a1a1a' }
+    ]
+  },
+  {
+    id: 'jo5',
+    name: 'Jogging',
+    price: 30000,
+    category: 'Jogging',
+    description: 'Pantalón jogging cómodo y deportivo.',
+    image: './imgs/joggin4.jpg',
+    sizes: ['8','9'],
+    colors: [
+      { name: 'Negro', hex: '#1a1a1a' }
     ]
   },
 
@@ -470,6 +584,23 @@ const PRODUCTS = [
     colors: [
       { name: 'verde', hex: '#46643c' },
       { name: 'Marrón', hex: '#5a3a20' }
+    ],
+    badge: 'NUEVO'
+  },
+  {
+    id: 'a7',
+    name: 'Gorro de Lana',
+    price: 10000,
+    category: 'Accesorios',
+    description: 'Gorro de lana tejido, abrigado y cómodo para el invierno.',
+    image: './imgs/gorros1.jpg',
+    sizes: ['Única'],
+    colors: [
+      { name: 'Negro', hex: '#1a1a1a' },
+        { name: 'Gris Claro', hex: '#b0b0b0' },
+      { name: 'beige', hex: '#f5a36d' },
+      { name: 'azul', hex: '#003cff' }
+      , { name: 'marron', hex: '#ad4500' },
     ],
     badge: 'NUEVO'
   },
