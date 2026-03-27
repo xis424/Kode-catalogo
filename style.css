@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════
-   KODE — style.css
+   KODE — style.css  v1.1
    Dark luxury streetwear aesthetic
    Mobile-first design
    ══════════════════════════════════════════════════ */
@@ -9,7 +9,7 @@
   --bg:         #0a0a0a;
   --bg-card:    #141414;
   --bg-nav:     #0f0f0f;
-  --accent:     #6ca1b1;      /* verde lima eléctrico */
+  --accent:     #6ca1b1;
   --accent-dim: #539bb8;
   --text-1:     #f0ece4;      /* blanco roto */
   --text-2:     #888888;
@@ -23,6 +23,11 @@
   --nav-h:      56px;
   --wsp-bar-h:  80px;
   --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* WhatsApp verde oficial */
+  --wsp-green:       #25D366;
+  --wsp-green-dark:  #1da855;
+  --wsp-green-glow:  rgba(37, 211, 102, 0.25);
 }
 
 /* ── Reset ── */
@@ -534,7 +539,7 @@ button {
 
 /* Cuerpo del detalle */
 .detail-body {
-  padding: 20px 20px calc(var(--wsp-bar-h) + 24px);
+  padding: 20px 20px calc(var(--wsp-bar-h) + 40px);
 }
 
 .detail-header {
@@ -622,7 +627,7 @@ button {
 
 .btn-color.selected {
   border-color: var(--accent);
-  background: rgba(198, 241, 53, 0.08);
+  background: rgba(108, 161, 177, 0.12);
 }
 
 .color-dot {
@@ -645,28 +650,84 @@ button {
 
 
 /* ══════════════════════════════════════════════════
-   BOTÓN WHATSAPP FIJO
+   BOTÓN WHATSAPP FIJO — v1.1 FIX
+   ══════════════════════════════════════════════════
+
+   PROBLEMA ORIGINAL:
+   - .wsp-bar tenía pointer-events:none en el contenedor
+     y pointer-events:all en los hijos, lo que en algunos
+     WebViews causaba que el gradient de fondo "tapara"
+     visualmente el botón con artefactos de compositing.
+   - Faltaba padding-bottom para safe-area (iPhones con
+     notch/Dynamic Island).
+   - El z-index 20 podía quedar bajo el z-index de .screen.active (z:2)
+     en ciertos motores de render de WebViews.
+
+   SOLUCIÓN:
+   - Separamos el overlay de gradiente (.wsp-gradient) del
+     contenedor del botón (.wsp-bar). El gradiente es
+     puramente decorativo y no interactúa con eventos.
+   - .wsp-bar ahora solo contiene el botón, sin lógica de
+     pointer-events mixta.
+   - z-index elevado a 100 para superar cualquier pantalla.
+   - padding-bottom respeta env(safe-area-inset-bottom)
+     para dispositivos con home indicator.
+   - El botón tiene isolation:isolate para crear su propio
+     stacking context y evitar mezcla de colores.
    ══════════════════════════════════════════════════ */
+
+/* Gradiente decorativo (no capta clicks) */
+.wsp-gradient {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    var(--bg) 50%,
+    rgba(10, 10, 10, 0.85) 75%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 98;
+  /* Ocultar cuando el detalle no está activo */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Contenedor del botón */
 .wsp-bar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 20;
-  padding: 12px 16px 24px;
-  background: linear-gradient(to top, var(--bg) 70%, transparent);
+  z-index: 99;
+  padding: 0 16px 16px;
+  /* Safe area para iPhones con notch / Dynamic Island */
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  /* Sin background ni gradiente aquí — lo maneja .wsp-gradient */
+  background: transparent;
+  /* Ocultar cuando el detalle no está activo */
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 
-#screen-detail:not(.active) .wsp-bar {
-  display: none;
+/* Mostrar barra y gradiente solo cuando screen-detail está activo */
+#screen-detail.active ~ .wsp-gradient,
+#screen-detail.active ~ .wsp-bar {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* Solo el botón captura eventos */
-.wsp-bar * {
-  pointer-events: all;
+/* Fallback: si .wsp-bar está dentro de #screen-detail */
+#screen-detail.active .wsp-bar {
+  opacity: 1;
+  pointer-events: auto;
 }
 
+/* El botón en sí */
 .btn-wsp {
   display: flex;
   align-items: center;
@@ -675,23 +736,46 @@ button {
   width: 100%;
   height: 54px;
   border-radius: var(--radius-md);
-  background: #25D366;  /* Verde WhatsApp oficial */
+
+  /* Verde WhatsApp con isolation para evitar mezcla de colores */
+  background: var(--wsp-green);
   color: #ffffff;
+  isolation: isolate;
+
   font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
   letter-spacing: 0.3px;
-  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3);
+
+  /* Sombra diferenciada del fondo oscuro */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 4px 20px var(--wsp-green-glow),
+    0 8px 32px rgba(0, 0, 0, 0.6);
+
   transition:
     background var(--transition),
     transform var(--transition),
     box-shadow var(--transition);
+
+  /* Evitar que el texto herede color del fondo de la app */
+  -webkit-text-fill-color: #ffffff;
+  text-fill-color: #ffffff;
 }
 
 .btn-wsp:active {
-  background: #1da855;
+  background: var(--wsp-green-dark);
   transform: scale(0.98);
-  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 2px 10px var(--wsp-green-glow),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* SVG icon dentro del botón — forzar color blanco */
+.btn-wsp svg {
+  fill: #ffffff;
+  flex-shrink: 0;
 }
 
 

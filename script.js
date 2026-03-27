@@ -398,7 +398,7 @@ const PRODUCTS = [
     badge: 'NUEVO'
   },
   {
-    id: 'j5',
+    id: 'j5b',
     name: 'Jean Cargo Negro',
     price: 50000,
     category: 'Jeans',
@@ -654,7 +654,6 @@ const PRODUCTS = [
   
 
 
-
 ]; // fin PRODUCTS
 
 /* ─────────────────────────────────────────────────
@@ -752,7 +751,21 @@ function animateCards(selector, delay = 60) {
 
 /* ─────────────────────────────────────────────────
    NAVEGACIÓN ENTRE PANTALLAS
+   ─────────────────────────────────────────────────
+   FIX INSTAGRAM: El WebView de Instagram (y algunos
+   otros en-app browsers) intercepta el primer popstate
+   para cerrar el webview. La solución es:
+   1. Al iniciar, hacer pushState (no replaceState) con
+      la pantalla home para que ya haya una entrada
+      "de relleno" antes de la primera navegación real.
+   2. Usar un flag `_navDepth` para saber cuántas
+      entradas reales hay en el stack del navegador.
+   3. En popstate, si la profundidad es 0, volver a
+      pushear un estado dummy para mantener la app
+      abierta.
 ───────────────────────────────────────────────── */
+
+let _navDepth = 0; // cuántas pantallas hemos apilado en history del browser
 
 /**
  * Navega a la pantalla indicada.
@@ -768,8 +781,9 @@ function navigateTo(to) {
   // Guardar en historial interno
   state.history.push(state.currentScreen);
 
-  // Registrar en el historial del navegador para que el botón "atrás" del celular funcione
-  history.pushState({ screen: to }, '', '');
+  // Registrar en el historial del navegador
+  _navDepth++;
+  history.pushState({ screen: to, depth: _navDepth }, '', '');
 
   // Slide-out de la pantalla actual
   fromEl.classList.remove('active');
@@ -790,12 +804,11 @@ function navigateTo(to) {
 
 /** Vuelve a la pantalla anterior (usado por el botón interno de la app) */
 function goBack() {
-  // Usar el historial del navegador para que también actualice la URL stack
   history.back();
 }
 
-/** Maneja el botón "atrás" del navegador/celular */
-window.addEventListener('popstate', () => {
+/** Ejecuta la transición de retroceso en la UI */
+function performGoBack() {
   if (state.history.length === 0) return;
   const prev = state.history.pop();
 
@@ -805,7 +818,7 @@ window.addEventListener('popstate', () => {
   const fromEl = document.getElementById(fromId);
   const toEl   = document.getElementById(toId);
 
-  // Transición invertida (slide de derecha a izquierda)
+  // Transición invertida
   fromEl.classList.remove('active');
   fromEl.style.transform = 'translateX(30px)';
   fromEl.style.opacity = '0';
@@ -821,6 +834,31 @@ window.addEventListener('popstate', () => {
       fromEl.style.opacity = '';
     }, 350);
   });
+}
+
+/**
+ * Maneja el botón "atrás" del navegador/celular.
+ *
+ * FIX INSTAGRAM WEBVIEW:
+ * Cuando estamos en la pantalla home y el usuario presiona
+ * atrás, el WebView de Instagram querría cerrar la vista.
+ * Para evitarlo, si no hay más historial interno, volvemos
+ * a insertar un estado dummy en el stack del browser, lo
+ * que cancela efectivamente el cierre. Si hay historial,
+ * hacemos la navegación normal hacia atrás.
+ */
+window.addEventListener('popstate', (e) => {
+  const depth = (e.state && e.state.depth) ? e.state.depth : 0;
+
+  if (state.history.length === 0) {
+    // No hay adónde ir: reinsertamos un estado para
+    // evitar que el WebView de Instagram cierre la app.
+    history.pushState({ screen: 'home', depth: 0 }, '', '');
+    return;
+  }
+
+  _navDepth = Math.max(0, _navDepth - 1);
+  performGoBack();
 });
 
 
@@ -1025,16 +1063,28 @@ function openWhatsApp() {
    INICIALIZACIÓN
 ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Registrar el estado inicial en el historial del navegador
-  // para que el botón "atrás" del celular no cierre la app desde home
-  history.replaceState({ screen: 'home' }, '', '');
+  /*
+   * FIX INSTAGRAM WEBVIEW — historia inicial:
+   * Usamos pushState (NO replaceState) para agregar DOS entradas
+   * al stack desde el inicio:
+   *   [entry-dummy] → [home]
+   * Esto garantiza que cuando el usuario presione atrás desde home,
+   * el popstate se dispare con `state.history.length === 0` y
+   * nosotros volvamos a pushear un estado, evitando que Instagram
+   * cierre el WebView.
+   *
+   * Si usáramos replaceState, el stack empieza vacío y el primer
+   * popstate cierra el WebView directamente en Instagram.
+   */
+  history.replaceState({ screen: 'home', depth: 0 }, '', '');
+  // Push extra para dar "colchón" contra el cierre del WebView
+  history.pushState({ screen: 'home', depth: 0 }, '', '');
 
   renderHome();
   console.log(
-    '%cKODE Catálogo v1.0',
+    '%cKODE Catálogo v1.1',
     'font-family:monospace; font-size:14px; color:#c6f135; background:#0a0a0a; padding:6px 12px; border-radius:4px;'
   );
-  console.log('👉 Recordá cambiar WHATSAPP_NUMBER en script.js');
 });
 
 /*
